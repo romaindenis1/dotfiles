@@ -1,0 +1,5 @@
+[user]
+	name = Romain Denis
+	email = rom.denis.oz@gmail.com
+[core]
+	editor = nvim
