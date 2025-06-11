@@ -4,10 +4,12 @@
 alias nvm='nvim'                        
 alias ls='ls -al'
 
+alias cls='clear'
+
 # Functions for common tasks
 nxconfig() {
   # Open the NixOS configuration file with nvim
-  nvim /etc/nixos/configuration.nix
+ sudo nvim /etc/nixos/configuration.nix
 }
 
 nxbuild() {
