@@ -28,6 +28,7 @@
 
   environment.systemPackages = with pkgs; [
     hyprland
+    hyprpaper
     waybar
     kitty
     neovim
