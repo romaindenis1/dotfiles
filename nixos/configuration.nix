@@ -9,13 +9,16 @@
     shell = pkgs.zsh;
   };
 
+  #Flakes
+  nix.settings.experimental-features = "nix-command flakes";
+
   # Enable zsh program support
   programs.zsh.enable = true;
 
   # Enable Hyprland
   programs.hyprland.enable = true;
 
-  # Greetd to launch Hyprland at login
+  #Launch Hyprland at login
   services.greetd = {
     enable = true;
     settings = {
@@ -44,16 +47,10 @@
   # Networking
   networking.networkmanager.enable = true;
 
+  #nix looks cooler than nixos :) 
   networking.hostName = "nix";
-  # Bootloader - adjust this to your system type
-
-  # If you have BIOS/MBR:
-#  boot.loader.grub = {
-#    enable = true;
-#    devices = [ "/dev/sda" ];  # replace /dev/sda with your boot drive
-#  };
-
-  # If you have UEFI and want systemd-boot instead, comment out the above and uncomment:
+  
+  # Bootloader - im on UEFI
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -66,3 +63,4 @@
 
   system.stateVersion = "25.05";
 }
+
