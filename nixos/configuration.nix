@@ -48,14 +48,14 @@
   # Bootloader - adjust this to your system type
 
   # If you have BIOS/MBR:
-  boot.loader.grub = {
-    enable = true;
-    devices = [ "/dev/sda" ];  # replace /dev/sda with your boot drive
-  };
+#  boot.loader.grub = {
+#    enable = true;
+#    devices = [ "/dev/sda" ];  # replace /dev/sda with your boot drive
+#  };
 
   # If you have UEFI and want systemd-boot instead, comment out the above and uncomment:
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable ssh for convenience
   services.openssh.enable = true;
@@ -66,4 +66,3 @@
 
   system.stateVersion = "25.05";
 }
-
