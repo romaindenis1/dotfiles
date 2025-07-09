@@ -28,12 +28,16 @@
       };
     };
   };
-
+systemd.user.services.waybar = {
+    description = "Waybar";
+    wantedBy = [ "default.target" ];  # Makes sure it starts in the user session
+    serviceConfig.ExecStart = "${pkgs.waybar}/bin/waybar";
+  };
   environment.systemPackages = with pkgs; [
     hyprland
-    hyprpaper
     waybar
     kitty
+    ncmpcpp
     neovim
     wl-clipboard
     git
@@ -41,8 +45,8 @@
     firefox
     zsh
     neofetch
-    stow
   ];
+
 
   # Networking
   networking.networkmanager.enable = true;
@@ -62,5 +66,6 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   system.stateVersion = "25.05";
+
 }
 
