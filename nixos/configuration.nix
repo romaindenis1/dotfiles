@@ -33,6 +33,10 @@ systemd.user.services.waybar = {
     wantedBy = [ "default.target" ];  # Makes sure it starts in the user session
     serviceConfig.ExecStart = "${pkgs.waybar}/bin/waybar";
   };
+
+  #Discord is not free! 
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
     hyprland
     waybar
@@ -45,6 +49,11 @@ systemd.user.services.waybar = {
     firefox
     zsh
     neofetch
+    rofi
+    rustc
+    cargo
+
+    discord
   ];
 
 

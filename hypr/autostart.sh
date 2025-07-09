@@ -3,6 +3,7 @@
 # Start wallpaper daemon
 # hyprpaper &
 kitty &
+waybar &
 # Notification daemon
 # dunst &
 

@@ -1,2 +1,16 @@
 *.secret
 
+###
+###RUST
+###
+
+#Build artifacts
+target/
+**/target/
+
+#Cargo lockfile
+**/Cargo.lock
+
+#Editor/OS files
+.DS_Store
+*.swp
