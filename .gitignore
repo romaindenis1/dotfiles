@@ -14,3 +14,9 @@ target/
 #Editor/OS files
 .DS_Store
 *.swp
+
+###
+###GITHUB
+###
+
+.gitconfig
