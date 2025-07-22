@@ -16,3 +16,5 @@ nxbuild() {
   # Run sudo nixos-rebuild switch
   sudo nixos-rebuild switch
 }
+
+#TODO: make obsidian links
