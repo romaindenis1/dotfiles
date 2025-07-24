@@ -18,6 +18,8 @@ nxbuild() {
   sudo nixos-rebuild switch
 }
 
+#TODO need to figure out how to do this with alot of things
+#Dont really want to make it manually -- maybe another script ? :)) 
 randomstring() {
   (cd ~/dotfiles/scripts/randomString && cargo run -- "$@")
 }
@@ -56,4 +58,6 @@ refreshshell()
 {
   source ~/.zshrc
 }
+
+#TODO: Make scripts for securestore crypt and decrypt i cant be bothered right now 
 
