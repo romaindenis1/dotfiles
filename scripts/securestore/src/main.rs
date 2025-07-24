@@ -56,7 +56,7 @@ fn main() {
     let args: Vec<String> = env::args().collect();
 
     if args.len() < 5 {
-        print_help(&args[0]);
+        print_help();
         process::exit(1);
     }
 
@@ -109,7 +109,7 @@ fn main() {
         }
 
         _ => {
-            print_help(&args[0]);
+            print_help();
             process::exit(1);
         }
     }
