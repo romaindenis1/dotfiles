@@ -7,6 +7,8 @@ use std::{
     path::PathBuf,
     process,
 };
+use std::time::SystemTime;
+use chrono::{Datelike, Timelike, Local};
 
 fn print_help() {
     println!("Usage:");
@@ -85,7 +87,25 @@ fn main() {
             let password_file = &args_cleaned[4];
             let password = read_password_from_file(password_file);
 
-            if let Err(e) = encrypt::run(source, output_file, &password) {
+            // Add timestamp to output file name
+            let now = Local::now();
+            let timestamp = format!(
+                "{}-{:02}-{:02}_{:02}",
+                now.year(),
+                now.month(),
+                now.day(),
+                now.hour()
+            );
+
+            let mut output_path = PathBuf::from(output_file);
+            let file_stem = output_path.file_stem().and_then(|s| s.to_str()).unwrap_or("output");
+            let extension = output_path.extension().and_then(|e| e.to_str()).unwrap_or("enc");
+            let parent = output_path.parent().unwrap_or_else(|| std::path::Path::new(""));
+
+            let new_file_name = format!("{}_{}.{}", file_stem, timestamp, extension);
+            let new_output_path = parent.join(new_file_name);
+
+            if let Err(e) = encrypt::run(source, new_output_path.to_str().unwrap(), &password) {
                 eprintln!("Encryption failed: {}", e);
                 process::exit(1);
             }
