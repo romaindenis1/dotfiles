@@ -15,7 +15,7 @@ use walkdir::WalkDir;
 
 const NONCE_SIZE: usize = 12;
 const SALT_SIZE: usize = 16;
-const PBKDF2_ITERATIONS: u32 = 100_000;
+const PBKDF2_ITERATIONS: u32 = 1_000_000; 
 
 pub fn run(source_dir: &str, output_file: &str, password: &str) -> anyhow::Result<()> {
     let mut buffer: Vec<u8> = Vec::new();
