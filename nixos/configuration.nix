@@ -52,8 +52,9 @@ systemd.user.services.waybar = {
     rofi
     rustc
     cargo
+    onefetch
 
-    discord
+    obsidian
   ];
 
 

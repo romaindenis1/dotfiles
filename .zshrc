@@ -61,3 +61,18 @@ refreshshell()
 
 #TODO: Make scripts for securestore crypt and decrypt i cant be bothered right now 
 
+#Fetch for repo when cd into one
+#Not good for resources probably but it looks nice
+LAST_REPO=""
+
+cd() {
+	builtin cd "$@"
+	git rev-parse 2>/dev/null
+
+	if [ $? -eq 0 ]; then
+		if [ "$LAST_REPO" != $(basename $(git rev-parse --show-toplevel)) ]; then
+			onefetch
+			LAST_REPO=$(basename $(git rev-parse --show-toplevel))
+		fi
+	fi
+}

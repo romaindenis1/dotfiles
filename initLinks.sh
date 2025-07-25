@@ -2,4 +2,6 @@
 
 sudo ln -SF /home/r/dotfiles/nixos/configuration.nix /etc/nixos/configuration.nix
 
-# Other
+# Git config (Forgot to do this somehow)
+sudo ln -SF /home/r/dotfiles/.gitconfig /home/r/.gitconfig
+
