@@ -55,6 +55,7 @@ systemd.user.services.waybar = {
     onefetch
 
     obsidian
+    qbittorrent
   ];
 
 

@@ -25,6 +25,58 @@ randomstring() {
 }
 
 
+securestore() {
+  nix-shell -p gcc cargo rustc --run "cd ~/dotfiles/scripts/securestore && cargo run -- \"$@\""
+}
+
+
+securestore_encrypt() {
+  local source_folder=~/dotfiles/obsidian
+  local output_basename=backup
+  local output_dir=~/dotfiles
+  local password_file=~/dotfiles/scripts/securestore/pwd.secret
+
+  #expand ~
+  output_dir="${output_dir/#\~/$HOME}"
+  source_folder="${source_folder/#\~/$HOME}"
+  password_file="${password_file/#\~/$HOME}"
+
+  #remove previous backup
+  rm -f "$output_dir/${output_basename}_*.enc"
+
+  nix-shell -p gcc rustc cargo --run "
+    cd ~/dotfiles/scripts/securestore && \
+    cargo run -- -e \"$source_folder\" \"$output_dir/$output_basename.enc\" \"$password_file\"
+  "
+}
+
+securestore_decrypt() {
+  local backup_dir=~/dotfiles
+  local password_file=~/dotfiles/scripts/securestore/pwd.secret
+  local output_folder=~/dotfiles/obsidian
+
+  backup_dir="${backup_dir/#\~/$HOME}"
+  password_file="${password_file/#\~/$HOME}"
+  output_folder="${output_folder/#\~/$HOME}"
+
+  #\ls because i have an alias
+  local latest_backup
+  latest_backup=$(\ls -1t "$backup_dir"/backup_*.enc 2>/dev/null | head -n 1)
+
+  if [[ -z "$latest_backup" ]]; then
+    echo "Error: No backup file found in $backup_dir"
+    return 1
+  fi
+
+  echo "Using backup file: $latest_backup"
+
+  nix-shell -p gcc rustc cargo --run "
+    cd ~/dotfiles/scripts/securestore && \
+    cargo run -- -d \"$latest_backup\" \"$output_folder\" \"$password_file\"
+  "
+}
+
+
 #Makes new rust project with dumb shell.nix inside because it doesnt make it automatically
 #and i dont want to make it everytime
 newrust() {

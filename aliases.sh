@@ -2,7 +2,6 @@
 
 # Create aliases
 alias nvm='nvim'                        
-alias ls='ls -al'
 
 alias cls='clear'
 
