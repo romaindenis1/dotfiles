@@ -15,7 +15,7 @@ use sha2::Sha256;
 
 const NONCE_SIZE: usize = 12;
 const SALT_SIZE: usize = 16;
-const PBKDF2_ITERATIONS: u32 = 100_000;
+const PBKDF2_ITERATIONS: u32 = 1_000_000;
 
 pub fn run(input_file: &str, output_dir: &str, password: &str) -> anyhow::Result<()> {
     let mut input_data = Vec::new();

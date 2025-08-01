@@ -20,3 +20,8 @@ target/
 ###
 
 .gitconfig
+
+###
+###Obsidian vault
+###
+obsidian/

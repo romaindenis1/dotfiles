@@ -3,7 +3,8 @@
 # Start wallpaper daemon
 # hyprpaper &
 kitty &
-waybar &
+waybar -c ~/dotfiles/waybar/config -s ~/dotfiles/waybar/style.css &
+
 # Notification daemon
 # dunst &
 

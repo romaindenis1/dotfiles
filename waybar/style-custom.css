@@ -1,0 +1,76 @@
+* {
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  border: none;
+}
+
+window#waybar {
+  background-color: transparent;
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin: 4px;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Apply transparent background and keep spacing/pill look */
+#custom-rofi,
+#hyprland-workspaces,
+#hyprland-window,
+#pulseaudio,
+#network,
+#custom-notifications,
+#clock,
+#custom-powermenu {
+  background-color: transparent;
+  color: #ffffff;
+  padding: 4px 8px;
+  margin: 2px;
+  border-radius: 4px;
+}
+
+/* Workspaces: dot style */
+#hyprland-workspaces {
+  background: transparent;
+  padding: 0px 4px;
+}
+
+#hyprland-workspaces button {
+  background: transparent;
+  color: #bbbbbb;
+  padding: 0 6px;
+  margin: 0 2px;
+  border-radius: 50%;
+}
+
+#hyprland-workspaces button.active {
+  color: #ffffff;
+}
+
+/* Rofi button */
+#custom-rofi {
+  font-weight: bold;
+}
+
+/* Title text */
+#hyprland-window {
+  font-size: 15px;
+  font-weight: normal;
+  color: #dddddd;
+}
+
+/* Icons/text on right side */
+#pulseaudio,
+#network,
+#custom-notifications,
+#clock,
+#custom-powermenu {
+  color: #eeeeee;
+}
+

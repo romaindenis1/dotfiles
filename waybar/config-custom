@@ -1,0 +1,58 @@
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 6,
+  "margin": 5,
+  "modules-left": ["custom/rofi", "hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["pulseaudio", "network", "custom/notifications", "clock", "custom/powermenu"],
+
+  "custom/rofi": {
+    "format": "Apps",
+    "on-click": "rofi -show drun",
+    "tooltip": false
+  },
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "format": "{icon}",
+    "format-icons": {
+      "default": "○",
+      "active": "●"
+    },
+    "on-click": "activate"
+  },
+
+  "hyprland/window": {
+    "format": "{title}"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "scroll-step": 5
+  },
+
+  "network": {
+    "format-wifi": " {essid}",
+    "format-ethernet": "",
+    "tooltip-format-wifi": "{ifname}: {ipaddr}"
+  },
+
+  "custom/notifications": {
+    "format": "🔔",
+    "exec": "notify-send 'You have notifications'",
+    "tooltip": false
+  },
+
+  "clock": {
+    "format": "{:%a %H:%M}",
+    "tooltip-format": "{:%A, %B %-d}"
+  },
+
+  "custom/powermenu": {
+    "format": "⏻",
+    "on-click": "wlogout",
+    "tooltip": false
+  }
+}
+

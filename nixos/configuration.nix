@@ -17,6 +17,11 @@
 
   # Enable Hyprland
   programs.hyprland.enable = true;
+  
+
+  #Docker
+  virtualisation.docker.enable = true;
+
 
   #Launch Hyprland at login
   services.greetd = {
@@ -53,6 +58,7 @@ systemd.user.services.waybar = {
     rustc
     cargo
     onefetch
+    wlogout
 
     obsidian
     qbittorrent
