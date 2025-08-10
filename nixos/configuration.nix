@@ -20,7 +20,7 @@
   
 
   #Docker
-  virtualisation.docker.enable = true;
+  #virtualisation.docker.enable = true;
 
 
   #Launch Hyprland at login
