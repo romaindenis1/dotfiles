@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-killall waybar
-waybar -c ~/.config/waybar/config-custom -s ~/.config/waybar/style-custom.css &
+waybar -c ~/.config/waybar/config-custom -s ~/.config/waybar/style-custom.css > /dev/null 2>&1 &
 
