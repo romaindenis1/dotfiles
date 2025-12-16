@@ -55,7 +55,7 @@
   },
 
   "battery": {
-    "format": " {capacity}%",
+    "format": "  {capacity}%",
     "tooltip": true,
     "on-click": "gnome-power-statistics"
   },
